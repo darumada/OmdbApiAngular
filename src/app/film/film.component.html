@@ -1,0 +1,30 @@
+<div class="container">
+  <ng-template [ngIf]="film && !error">
+    <h1 class="title">{{ film.Title }}</h1>
+    <div class="film">
+      <img [src]="film.Poster" [alt]="film.Title" />
+      <div class="film-data">
+        <div>Год - {{ film.Year }}</div>
+        <div>Страна - {{ film.Country }}</div>
+        <div>Жанр - {{ film.Genre }}</div>
+        <div>Описание - {{ film.Plot }}</div>
+        <div>Режисер - {{ film.Director }}</div>
+        <div>Сценарий - {{ film.Writer }}</div>
+        <button *ngIf="!inState" class="add" (click)="addToState()" mat-button>
+          Добавить в список
+        </button>
+        <button
+          *ngIf="inState"
+          class="delete"
+          (click)="removeFromState()"
+          mat-button
+        >
+          Удалить из списка
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template [ngIf]="error">
+    <h1 class="title">404 данный фильм не найден</h1>
+  </ng-template>
+</div>

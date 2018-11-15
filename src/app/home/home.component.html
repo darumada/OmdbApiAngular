@@ -1,0 +1,10 @@
+<div class="container">
+  <div
+    [routerLink]="['film', film.imdbID]"
+    class="film"
+    *ngFor="let film of films"
+  >
+    <img [src]="film.Poster" [alt]="film.Title" />
+    <span class="title">{{ film.Title }}</span>
+  </div>
+</div>
